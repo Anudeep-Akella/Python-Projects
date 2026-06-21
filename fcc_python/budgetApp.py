@@ -1,25 +1,30 @@
+"""A Buget App that calculates how much amount of money was allocated and spent on each category of daily necessities. """
 class Category:
     def __init__(self,name):
         self.name = name
         self.ledger = []
 
     def deposit(self,amount,description = ""):
+        """Let's you allocate an amount to the category."""
         self.ledger.append({'amount': amount, 'description': description})
 
 
     def withdraw(self,amount,description=""):
+        """Let's you withdraw amount for that category."""
         if self.check_funds(amount):
             self.ledger.append({'amount': -amount, 'description':description})
             return True
         return False
 
     def get_balance(self):
+        """Shows how much amount of money was present after repeated deposits and withdraws for each category."""
         balance = 0
         for ledger in self.ledger:
             balance += ledger['amount']
         return balance
 
     def transfer(self,amount,other):
+        """Let's you transfer amount of money from one category to another category."""
         if self.withdraw(amount,f"Transfer to {other.name}"):
             other.deposit(amount,f"Transfer from {self.name}")
             return True
@@ -27,12 +32,13 @@ class Category:
         
 
     def check_funds(self,amount):
+        """Let's you check the amount of money before performing any type of transaction"""
         if amount > self.get_balance():
             return False
         return True
 
     def __str__(self):
-        
+        """Let's you print the class object in the form of a custimized string."""
         output = f"{self.name.center(30,'*')}\n"
         for ledger in self.ledger:
             desc = ledger['description'][:23]
@@ -44,7 +50,7 @@ class Category:
         return output
 
 def create_spend_chart(categories):
-    
+    """A simple chart will be shown for the amount of money allocated and spent for each category."""
     spent_per_category = []
     total_spent = 0
 
