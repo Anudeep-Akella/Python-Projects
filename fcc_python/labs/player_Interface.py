@@ -2,7 +2,8 @@ from abc import ABC, abstractmethod
 import random
 
 
-class Player(ABC):
+class Player(ABC):         
+    """Abstract base class for a player in a game."""
     def __init__(self):
         self.moves = []
         self.position = (0,0)
@@ -20,7 +21,8 @@ class Player(ABC):
 
 
 class Pawn(Player):
-    def __init__(self):
+    """Concrete implementation of a Player that can move in four directions."""
+    def __init__(self):         
         super().__init__()
         self.moves = [(0, 1), (0, -1), (1, 0), (-1, 0)]  # Up, Down, Right, Left
 
