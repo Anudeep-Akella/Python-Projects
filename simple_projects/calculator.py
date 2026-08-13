@@ -1,11 +1,12 @@
 # Basic calculator
+# That calculates the simple mathematical computations on given 2 numbers.
 import sys
 num1 = float(input("Enter the first number:"))
 num2 = float(input("Enter the second number:"))
 
 while True:
-    print("Enter an operator for the calculation on the numbers:\n 1.Addition (+)\n 2.Substraction (-)\n 3.Multiplication (x)\n 4.Division (/)\n 5.Power (*)\n 6.quit to exit",end=' ')
-    operator = input().lower()
+    print("Enter a symbol for the calculation on the numbers:\n 1.Addition (+)\n 2.Substraction (-)\n 3.Multiplication (x)\n 4.Division (/)\n 5.Power (*)\n 6.Remainder (%)\n 7.quit to exit")
+    operator = input("The operator:").lower()
 
     match operator:
         case '+':
@@ -32,6 +33,10 @@ while True:
             print(f"Power of numbers {num1} power {num2} = {int(result) if result.is_integer() else result}.")
             break
 
+        case '%':
+            result = num1 % num2
+            print(f"Remainder when {num1} is divided by {num2} = {int(result) if result.is_integer() else result}.")
+            break
         case "quit":
             sys.exit()
 
