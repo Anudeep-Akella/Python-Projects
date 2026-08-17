@@ -19,5 +19,5 @@ def validation(email):
 
 
 email = input("Enter an email for validation check:")
-result = validation(email)
+print(validation(email))
 
