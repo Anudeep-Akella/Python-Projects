@@ -3,7 +3,7 @@
 import random
 
 def get_choices():
-    """ Gets the choices of both the player and the computer. """"
+    """ Gets the choices of both the player and the computer. """
     player_choice = input("Enter your choice (rock,paper,scissors):").lower()
     options = ["rock", "paper", "scissors"]
     computer_choice = random.choice(options)
